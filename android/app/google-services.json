@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "539136254081",
+    "project_id": "login-dashboard-b3dc7",
+    "storage_bucket": "login-dashboard-b3dc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539136254081:android:ab3a8981ce351b519fad80",
+        "android_client_info": {
+          "package_name": "com.example.login_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuoQXPkiM4Tr-g3K_0MEkRC7kNdRXttmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
