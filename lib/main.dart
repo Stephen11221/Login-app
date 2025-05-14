@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: FirebaseAuth.instance.currentUser == null ? '/login' : '/home',
+      initialRoute: FirebaseAuth.instance.currentUser == null ? '/register' : '/home',
       routes: {
           '/register': (context) => const RegisterScreen(),
 

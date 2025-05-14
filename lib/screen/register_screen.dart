@@ -71,24 +71,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Register')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 32.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const Text(
+              'Create Account',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 24),
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+              keyboardType: TextInputType.emailAddress,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             TextField(
               controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
               obscureText: true,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             DropdownButtonFormField<String>(
               value: _selectedRole,
-              decoration: const InputDecoration(labelText: 'Role'),
+              decoration: InputDecoration(
+                labelText: 'Select Role',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
               items: const [
                 DropdownMenuItem(value: 'user', child: Text('User')),
                 DropdownMenuItem(value: 'admin', child: Text('Admin')),
@@ -101,14 +118,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             const SizedBox(height: 20),
             if (_error.isNotEmpty)
-              Text(_error, style: const TextStyle(color: Colors.red)),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Text(
+                  _error,
+                  style: const TextStyle(color: Colors.red),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             _isLoading
-                ? const CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: _register,
-                    child: const Text('Register'),
+                ? const Center(child: CircularProgressIndicator())
+                : SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: _register,
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                      ),
+                      child: const Text('Register', style: TextStyle(fontSize: 16)),
+                    ),
                   ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/login');
